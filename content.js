@@ -1,14 +1,21 @@
 function redirectToCompose() {
     setTimeout(redirectToCompose, 1000)
+    if (window.location.pathname === '/i/flow/login') {
+        return
+    }
     if (window.location.pathname !== '/compose/post') {
         window.location.href = 'https://x.com/compose/post'
         return
     }
 }
 function addModalBackground() {
+
     const modal = document.querySelector('[aria-modal="true"]')
     if (!modal) {
         setTimeout(addModalBackground, 100) // check often before loaded
+        return
+    }
+    if (window.location.pathname !== '/compose/post') {
         return
     }
     setTimeout(addModalBackground, 1000) // check less often after loaded
@@ -19,7 +26,6 @@ function addModalBackground() {
         bg.id = 'mycoolbg'
     }
 
-    // Create a new div for the background if it doesn't exist
     // Insert the background just before the modal in the DOM
     modal.parentNode.insertBefore(bg, modal)
 
