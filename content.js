@@ -1,12 +1,17 @@
 function redirectToCompose() {
+    setTimeout(redirectToCompose, 1000)
     if (window.location.pathname !== '/compose/post') {
         window.location.href = 'https://x.com/compose/post'
+        return
     }
-    addModalBackground()
 }
 function addModalBackground() {
     const modal = document.querySelector('[aria-modal="true"]')
-    if (!modal) return
+    if (!modal) {
+        setTimeout(addModalBackground, 100) // check often before loaded
+        return
+    }
+    setTimeout(addModalBackground, 1000) // check less often after loaded
 
     let bg = document.getElementById('mycoolbg')
     if (!bg) {
@@ -32,5 +37,5 @@ function addModalBackground() {
 
 
 
-setInterval(redirectToCompose, 1000)
-setTimeout(() => setInterval(addModalBackground, 1000), 100)
+redirectToCompose()
+addModalBackground()

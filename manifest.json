@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "write only x/twitter",
+    "name": "Write-only x/twitter (block feed)",
     "version": "1.0",
     "description": "Redirects x.com/* to x.com/compose/post",
     "content_scripts": [
