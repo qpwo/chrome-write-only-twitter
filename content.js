@@ -33,8 +33,9 @@ function removeSection(queryText) {
 
 function clearcrap() {
     setTimeout(clearcrap, 250)
-    removeSection('What’s happening')
-    if (!(window.location.pathname.endsWith('/home') || window.location.pathname.endsWith('/explore'))) return
+    // removeSection('What’s happening')
+    removeSection('Live on X')
+    if (!(window.location.pathname.endsWith('/home') || window.location.pathname.endsWith('/explore')|| window.location.pathname.endsWith('/compose/post'))) return
     document.querySelectorAll('article, [role="region"], [role="complementary"], [role="status"]').forEach(el => el.style.visibility = 'hidden')
 }
 clearcrap()
